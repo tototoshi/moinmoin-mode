@@ -1,7 +1,3 @@
-;;; Use raw text to fetch this code, see EmacsForMoinMoin for tutorial and discussion.
-
-;;; Download link: http://moinmo.in/EmacsForMoinMoin/MoinMoinMode?action=raw
-
 ;;; moinmoin-mode.el --- a major mode to edit MoinMoin wiki pages
 
 ;; Written by ASK, distributed under GPL
@@ -208,7 +204,7 @@ This is supposed to be bug-to-bug compatible with moinmoin-1.5.2"
         (throw 'match t)))))
 
 (defun moinmoin-setup-font-lock ()
-  (setq font-lock-beginning-of-syntax-function '(lambda () (goto-char 1)))
+;;  (setq font-lock-beginning-of-syntax-function '(lambda () (goto-char 1)))
   (setq font-lock-multiline t)
   (make-local-variable 'font-lock-extra-managed-props)
   (add-to-list 'font-lock-extra-managed-props 'moinmoin-verbatim) ; Not Comment Start
