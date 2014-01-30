@@ -587,4 +587,14 @@ different go to the beginning of the line first."
 
 (add-to-list 'auto-mode-alist '("\\.wiki$" . moinmoin-mode))
 
+(add-hook 'moinmoin-mode-hook
+          (lambda ()
+            (setq imenu-generic-expression
+                  '(("******" "^====== \\(.*?\\) ======$" 1)
+                    ("*****" "^===== \\(.*?\\) =====$" 1)
+                    ("****" "^==== \\(.*?\\) ====$" 1)
+                    ("***" "^=== \\(.*?\\) ===$" 1)
+                    ("**" "^== \\(.*?\\) ==$" 1)
+                    ("*" "^= \\(.*?\\) =$" 1)))))
+
 (provide 'moinmoin-mode)
