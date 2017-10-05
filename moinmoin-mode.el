@@ -5,14 +5,10 @@
 ;; Filename:      moinmoin-mode.el
 ;; Keywords:      moinmoin, wiki
 ;; Description:   a major mode to edit MoinMoin wiki pages
-;; Compatibility: GNU Emacs 22.0.50.1 (probably others)
-;; Last modified: 2006-04-15
+;; Compatibility: GNU Emacs 24 (probably others)
+;; Last modified: 2017-10-04
 
 ;; This file is NOT part of GNU Emacs.
-
-(require 'screen-lines) ; uses screen-lines.el by Yuji Minejima, tested with 0.55
-
-
 
 ;;; Definition of font faces
 (defgroup moinmoin nil
@@ -578,10 +574,11 @@ different go to the beginning of the line first."
   (local-set-key (kbd "M-RET") 'moinmoin-insert-item)
   (local-set-key (kbd "C-c a") 'moinmoin-insert-anchor)
   (local-set-key (kbd "C-c g") 'moinmoin-goto-anchor)
-  (toggle-truncate-lines 0)                    ; do not truncate
-  (screen-lines-mode 1)                        ; use screen lines
+  (visual-line-mode)
   (moinmoin-setup-font-lock)
   (abbrev-mode 1)
+  ;; I don't think this set-fill-column 65000 is needed anymore, but I could
+  ;; be wrong -- sten0
   (set-fill-column 65000)
   (auto-fill-mode 0))
 
